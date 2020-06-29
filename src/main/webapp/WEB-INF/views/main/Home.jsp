@@ -1,15 +1,11 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <!doctype html>
 
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	Hello 타일즈 !
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-</body>
-</html>
+ <style>
+ #content {
+ min-height : 700px;
+ }
+ </style>
+<div id="content">
+<h3>Home</h3>	
+</div>
