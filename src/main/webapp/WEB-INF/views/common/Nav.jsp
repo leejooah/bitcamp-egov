@@ -118,7 +118,9 @@ padding-top : 20px;
 </form>
 </div>
 </div>
+<script src="${javascript}/store/member.js"></script>
 <script>
+app.init("${context}")
 $('#enterLoginForm').click(function(e){
 	 $("#overlayForLogin").css('display' , 'block')
 })
@@ -132,30 +134,16 @@ $('#escapeRegisterForm').click(function(e){
 	$("#overlayForRegister").css('display' , 'none')	
 })
 $('#enterLoanHome').click(function(e){
+	alert("${context}")
 location.href = "${context}/loan/home"
 })
 $('#enterHome').click(function(e){
-location.href = "${context}"
+location.href = "${context}" //여기에 있는것은 java의 sessionAttribute에 있는 것
 })
-$('#tryRegister').click(function(e){
-	 $.ajax({
-    	   url : 'admins',
-    	   type : 'post',
-    	   data : JSON.stringify({
-    		 email : $('#inputEmailForRegister').val(),
-			 position : $('#inputPasswordForRegister').val(),
-			 email : $('#inputPasswordForRegisterForCheck').val()
-    	   }),
-    	   dataType : 'json',
-    	   contentType : 'application/json',
-    	   success : d=>{
-    		 if (d ==='SUCCESS') {
-				alert('성공')
-    		 }else{
-				alert('실패')
-			}
-    	   },
-    	   error : (r,x,e) =>{alert(r.status)}
-       })
+document.getElementById('tryRegister').addEventListener('click',function(e){
+		e.preventDefault()
+		member.init()
+		member.join({"email": document.getElementById('inputEmailForRegister').value,
+			"password": document.getElementById('inputPasswordForRegister').value})
 })
 </script>
