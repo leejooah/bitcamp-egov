@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leejua.web.domains.Member;
-import com.leejua.web.utils.Messenger;
+import com.leejua.web.emuns.Messenger;
 
 @RestController
 @RequestMapping("/member")
