@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service;
 import com.leejua.web.mappers.MemberMapper;
 
 @Service
-public class MemberServiceImpl {
+public class MemberServiceImpl implements MemberService{
 	
 @Autowired MemberMapper memberMapper;
+
+
+
 }
