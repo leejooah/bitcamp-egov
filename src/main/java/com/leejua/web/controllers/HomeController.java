@@ -4,7 +4,6 @@ package com.leejua.web.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,7 @@ public class HomeController {
 
 	@GetMapping("")
 	public String home(HttpSession session, HttpServletRequest request) {
+		logger.info("홈컨트롤러 들어옴");
 			session.setAttribute("context", request.getContextPath());
 			session.setAttribute("javascript", request.getContextPath()+"/resources/js");
 			session.setAttribute("css", request.getContextPath()+"/resources/css");

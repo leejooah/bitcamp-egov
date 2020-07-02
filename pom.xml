@@ -12,6 +12,7 @@
 		<org.springframework-version>4.3.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<jstl-version>1.2</jstl-version>
 	</properties>
 <dependencies>
 		<!-- Spring -->
@@ -106,7 +107,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl-version}</version>
 		</dependency>
 
 		<dependency>
@@ -208,6 +209,13 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+ <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.3.0.RELEASE</version>
+        </dependency>
+
+		
 
 
 		<!-- root -->

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style>
 #overlayForLogin {
@@ -60,11 +61,26 @@ padding-top : 20px;
         <li><a>계산기</a></li>
       </ul>
  
-    
-      <ul class="nav navbar-nav navbar-right">
+ <c:choose>
+ <c:when test="${empty auth}">
+  <ul class="nav navbar-nav navbar-right">
         <li><a id="enterLoginForm">로그인</a></li>
             <li><a id="enterRegisterForm">회원가입</a></li>
       </ul>
+      </c:when>
+       <c:when test="${auth eq 'admin'}">
+  <ul class="nav navbar-nav navbar-right">
+        <li><a>접속중</a></li>
+            <li><a id="exitAdmin">접속종료</a></li>
+      </ul>
+      </c:when>
+      <c:otherwise>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a id="exitUser">로그아웃</a></li>
+            <li><a>마이페이지</a></li>
+      </ul>
+      </c:otherwise>
+ </c:choose>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -81,13 +97,13 @@ padding-top : 20px;
 
   <div class="form-group">
     <label for="exampleInputEmail1">이메일을 입력하세요.</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="inputEmailForLogin" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">비밀번호를 입력하세요.</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" class="form-control" id="inputPasswordForLogin">
   </div>
-  <button type="submit" class="btn btn-primary" style="width : 100%; height: 50px;margin-top:30px">로그인</button>
+  <button id="login_btn" type="submit" class="btn btn-primary" style="width : 100%; height: 50px;margin-top:30px">로그인</button>
 </form>
 </div>
 </div>
@@ -114,7 +130,7 @@ padding-top : 20px;
     <label for="exampleInputPassword1">비밀번호를 다시 입력하세요</label>
     <input type="password" class="form-control" id="inputPasswordForRegisterForCheck">
   </div>
-  <button type="submit" class="btn btn-primary" id="tryRegister" style="width : 100%; height: 50px;margin-top:30px">회원가입</button>
+  <button type="submit" class="btn btn-primary" id="register_btn" style="width : 100%; height: 50px;margin-top:30px">회원가입</button>
 </form>
 </div>
 </div>
@@ -140,10 +156,40 @@ location.href = "${context}/loan/home"
 $('#enterHome').click(function(e){
 location.href = "${context}" //여기에 있는것은 java의 sessionAttribute에 있는 것
 })
-document.getElementById('tryRegister').addEventListener('click',function(e){
+document.getElementById('register_btn').addEventListener('click',function(e){
 		e.preventDefault()
 		member.init()
 		member.join({"email": document.getElementById('inputEmailForRegister').value,
 			"password": document.getElementById('inputPasswordForRegister').value})
+	location.reload();
 })
+document.getElementById('login_btn').addEventListener('click',function(e){
+	e.preventDefault()
+	member.init()
+	member.login({"email": document.getElementById('inputEmailForLogin').value,
+        		"password": document.getElementById('inputPasswordForLogin').value})
+  location.reload();
+})
+$('#exitAdmin').click(function(e){
+	e.preventDefault()
+	member.init()
+	member.logout()
+	location.reload();
+})
+/* document.getElementById('exitAdmin').addEventListener('click',function(e){
+	e.preventDefault()
+	member.init()
+	member.logout()
+}) */
+$('#exitUser').click(function(e){
+	e.preventDefault()
+	member.init()
+	member.logout()
+	location.reload();
+})
+/* document.getElementById('exitUser').addEventListener('click',function(e){
+	e.preventDefault()
+	member.init()
+	member.logout()
+}) */
 </script>

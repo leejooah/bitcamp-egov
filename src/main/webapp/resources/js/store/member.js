@@ -8,7 +8,7 @@ member = (function(){
 	}
 	let join = function(payload){
 		$.ajax({
-			url : _+`/member/join`,
+			url : _+`/members/join`,
 			type : 'POST',
 			data : JSON.stringify(payload),
 			dataType : 'json',
@@ -22,5 +22,31 @@ member = (function(){
 			
 		})
 	}
-	return {init, join}
+	let login = function(payload){
+		$.ajax({
+			url : _+`/members/login`,
+			type: 'POST',
+			data: JSON.stringify(payload),
+			dataType: 'json',
+			contentType: 'application/json; charset=UTF-8',
+			success: function(res){
+				sessionStorage.clear();
+				sessionStorage.setItem('email',res.email)
+				sessionStorage.setItem('auth',res.auth)
+			},
+			error: function(err){
+				alert('실패')
+			}
+		})
+	}
+	let logout = function(){
+		$.get(_+`/members/${sessionStorage.getItem('email')}`,function(res){
+			if(res==='SUCCESS'){
+				sessionStorage.removeItem('email')
+				sessionStorage.removeItem('auth')
+			}
+		
+		})
+	}
+	return {init, join, login, logout}
 })()
