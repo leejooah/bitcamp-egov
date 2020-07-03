@@ -52,4 +52,6 @@ public class HomeController {
 			model.addAttribute("members", memberService.findAll());
 			return "member/UserList.tiles";
 		}
+		
+	
 }

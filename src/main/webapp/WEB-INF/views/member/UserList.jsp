@@ -18,14 +18,16 @@
 <tr>
     <td>${status.count}</td>
     <td>${member.memberSeq}</td>
-    <td>${member.email}</td>
+    <td><a id="detail">${member.email}</a></td>
   </tr>
 </c:forEach>
 </table>
 </div>
 <script src="${javascript}/store/member.js"></script>
 <script>
-
+document.getElementById('detail').addEventListener('click',function(e){
+	alert(document.getElementById('detail').innerHTML)
+})
 </script>
 <style>
 #userlist_table {
