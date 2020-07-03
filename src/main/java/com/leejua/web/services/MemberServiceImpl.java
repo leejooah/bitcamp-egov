@@ -1,5 +1,7 @@
 package com.leejua.web.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ public class MemberServiceImpl implements MemberService{
 public void register(Member member) {
 	memberMapper.insertMember(member);
 	
+}
+
+@Override
+public List<Member> findAll() {
+	return memberMapper.selectAll();
 }
 
 

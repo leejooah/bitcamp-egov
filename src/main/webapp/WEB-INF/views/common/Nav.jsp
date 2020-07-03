@@ -59,6 +59,7 @@ padding-top : 20px;
       <ul class="nav navbar-nav">
         <li><a id="enterLoanHome">대출 </a></li>
         <li><a>계산기</a></li>
+        <li><a id="userList">리스트</a></li>
       </ul>
  
  <c:choose>
@@ -192,4 +193,8 @@ $('#exitUser').click(function(e){
 	member.init()
 	member.logout()
 }) */
+document.getElementById('userList').addEventListener('click',function(e){
+	location.href = "${context}/member/list"
+})
+
 </script>

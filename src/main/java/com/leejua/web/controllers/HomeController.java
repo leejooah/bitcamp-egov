@@ -8,8 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.leejua.web.services.MemberService;
 
 
 
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class HomeController {
 	@Autowired HttpSession session;
 	@Autowired HttpServletRequest request;
+	@Autowired MemberService memberService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -42,5 +46,10 @@ public class HomeController {
 			logger.info("신용대출리스트");
 			return "loan/PersonalLoans.tiles";
 		}
-		
+		@GetMapping("member/list")
+		public String MemberList(Model model) {
+			logger.info(memberService.findAll().toString());
+			model.addAttribute("members", memberService.findAll());
+			return "member/UserList.tiles";
+		}
 }

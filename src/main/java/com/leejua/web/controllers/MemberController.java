@@ -1,5 +1,6 @@
 package com.leejua.web.controllers;
 
+
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -57,7 +58,11 @@ public Map<?,?> login(@RequestBody Member member,HttpSession session) {
 @GetMapping("/{email}")
 public Messenger logout(@PathVariable String email,HttpSession session) {
 	logger.info("logout으로 넘어옴 = "+email);
-	session.removeAttribute("auth");
-	return Messenger.SUCCESS; 
+	session.removeAttribute("auth"); //jsp에서 처리함
+	return Messenger.SUCCESS;  //js에서 처리함
 }	
+
+
+
+
 }
