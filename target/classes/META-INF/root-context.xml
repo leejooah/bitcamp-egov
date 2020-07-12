@@ -50,7 +50,4 @@
 			<property name="maxUploadSize" value="10000000"/>
 			<property name="defaultEncoding" value="UTF-8"/>
 	</bean>
-	<bean class="java.lang.String" id="string">
-			<constructor-arg value="C:\\Users\\bit30\\git\\egov.myproject\\src\\main\\webapp\\resources\\img"/>
-	</bean>
 </beans>

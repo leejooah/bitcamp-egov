@@ -25,7 +25,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_241"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="C:/Users/bit30/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar" sourcepath="C:/Users/bit30/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19-sources.jar">
 		<attributes>

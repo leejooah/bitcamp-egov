@@ -13,7 +13,11 @@
 		<org.springframework-version>4.3.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<log4j-version>1.2.15</log4j-version>
 		<jstl-version>1.2</jstl-version>
+		<javax.inject-version>1</javax.inject-version>
+		<servlet-api-version>2.5</servlet-api-version>
+		<jsp-api-version>2.1</jsp-api-version>
 		<easymock-version>2.4</easymock-version>
 		<dbunit-version>2.4.3</dbunit-version>
 		<unitils-version>2.2</unitils-version>
@@ -66,7 +70,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
+			<version>${log4j-version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.mail</groupId>
@@ -92,20 +96,20 @@
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
-			<version>1</version>
+			<version>${javax.inject-version}</version>
 		</dependency>
 
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet-api-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
+			<version>${jsp-api-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
